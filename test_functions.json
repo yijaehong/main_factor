@@ -1,0 +1,87 @@
+{
+"Firing_Angle":[
+       {
+          "min_variables":0.0,          
+          "max_variables":3.0,
+          "origin_value":1.0,
+          "interval":0.5,
+          "min_variables2":1.0,          
+          "max_variables2":3.0,
+          "origin_value2":2.0,
+          "interval2":0.5, 
+          "min_variables3":-2.0,          
+          "max_variables3":2.0,
+          "origin_value3":1.0,
+          "interval3":0.5,          
+      "optimization_type":"min",
+          "latex":" Firing_Angle(\\alpha)= \\arccos( (100-a\\%-b\\%) / 100 )*180/\\pi",
+          "latex2":" Firing_Angle(\\alpha)= \\arccos(\\cos(a\\%*\\pi/180)/(1+b\\%/ 100))*180/\\pi"
+       }
+ ],
+ "Extinction_Angle":[
+   {
+      "min_variables":0.0,          
+      "max_variables":3.0,
+      "origin_value":1.0,
+      "interval":0.5,
+      "min_variables2":1.0,          
+      "max_variables2":3.0,
+      "origin_value2":2.0,
+      "interval2":0.5, 
+      "min_variables3":-2.0,          
+      "max_variables3":2.0,
+      "origin_value3":1.0,
+      "interval3":0.5,          
+  "optimization_type":"min",
+      "latex":" Extinction_Angle(\\gamma)= \\triangle Q_{rr} + \\triangle T ",
+      "latex2":"\\triangle Q_{rr}= [750 \\times [(\\frac{di}{dt})_{off} \\times 0.25] ^{0.53} \\times  [\\frac{PRV}{nT \\times 3.5}]^{0.154} \\times ( e^{{0.01}^\\times(Ti-90)} )]",
+      "terms":"\\scriptsize \\frac{di}{dt} : Critical Rate of Rise of commutation current [A/us] \\\\ PRV : Valve Peak reverse voltage\\\\ nT : Thyristor levels \\\\ Tj : Maximum steady-state junction temperature",
+      "latex3":"\\triangle T= \\frac{ \\triangle Q_{rr}} { C_d \\times (\\Large \\frac{dv}{dt})}"
+   }
+],
+ "Main_Transfomer_Voltage":[
+       {
+        "min_variables":0.0,          
+        "max_variables":3.0,
+        "origin_value":1.0,
+        "interval":0.5, 
+        "latex":"V_{LN}= \\frac{ \\pi} { 3\\sqrt{2} } \\times {(\\frac{V_{dN}+ \\frac 3\\pi XcI_{dN}} {\\cos{\\alpha}} )}",
+        "terms":" \\scriptsize  V_{dN}\\space:\\space Nominal \\space DC \\space voltage\\space per\\space 6-pulse \\space Bridge\\space [kV] \\\\ I_{dN}\\space:\\space Nominal \\space Direct \\space Current\\space [kA] \\\\    Xc\\space:\\space transfomer\\space impedence\\space [\\Omega]",
+        "latex2":"X_c= \\frac{ \\% Z \\times {U_{v nom}^2}} { MVA_{Xmer} } ",
+        "terms2":"\\scriptsize U_{v nom}:\\space Nominal \\space  valve \\space winding \\space voltage (kVrms) \\\\ MVAX_{mer}:Nominal \\space transformer \\space 3-phase rating \\space (MVA)",
+
+        "latex3":"S_T=  \\sqrt{2} \\times V_{LN} \\times I_{dN} , \\space S_T= \\frac {\\pi}{3}  \\times V_{doN} \\times I_{dN}",
+        "terms3":"\\scriptsize V_{dN} :\\space Nominal \\space DC \\space voltage \\space  per \\space 6-pulse \\space Bridge\\space [kV] \\\\ V_{doN} :\\space No-load(ideal) \\space Nominal \\space DC \\space voltage \\space [kV] \\\\ I_{dN} : \\space Nominal \\space Direct \\space Current \\space [kA]",
+
+        "latex4":"Tap_{negative}[\\%]= 100 - (\\frac{U_{AC nom}}{U_{VW nom}} \\times \\frac{U_{VW max}}{U_{AC min}})",
+        "terms4":"\\scriptsize V_{dN}\\space:\\space Nominal \\space DC \\space voltage\\space per\\space 6-pulse \\space Bridge\\space [kV] \\\\ I_{dN}\\space:\\space Nominal \\space Direct \\space Current\\space [kA] \\\\    Xc\\space:\\space transfomer\\space impedence\\space [\\Omega]",
+        "latex5":"Tap_{positive}[\\%]= 100 - (\\frac{U_{AC nom}}{U_{VW nom}} \\times \\frac{U_{VW min}}{U_{AC max}})"   
+        }
+ ],
+ 
+ "Reactive_Power":[
+       {
+          "max_variables":5,
+          "interval_min":-5.12,
+          "interval_max":5.12,
+          "optimal":0,
+          "arguments":0,
+      "optimization_type":"min",
+          "latex":"Q_{dc\\space P.U }= \\tan [ \\arccos ( \\cos \\sigma - \\frac{X_p}{2} )]",
+          "terms":"\\scriptsize Q_{dc\\space P.U }: \\space The \\space reactive \\space power \\space absorption \\space of \\space the \\space converter \\space at \\space DC \\space current [p.u] \\\\ X_p : \\space Converter \\space transformer\\space  leakage \\space reactance \\space [p.u] \\\\ \\sigma : \\space Converter \\space control \\space angle \\space \\alpha \\space or \\space \\gamma [rad]", 
+          "latex1":"\\nabla V= \\frac{Q_{Swith}}{SCL_{min}-Q_{total}} ",
+          "terms1":"\\scriptsize \\nabla V :\\space Change \\space to \\space AC \\space voltage [p.u]\\\\SCL_{min} : \\space Minimum \\space Short-Circuit \\space Level \\space of \\space AC \\space system [MVA]\\\\ Q_{Swith} :\\space Reactive \\space power \\space step \\space to \\space b \\space imposed \\space on \\space the \\space AC \\space system [MVAr]\\\\ Q_{total}: \\space Reactive \\space power \\space connected \\space  to \\space the \\space converter \\space bus \\space including \\space the \\space reactive \\space power \\space to \\space be \\space siwtched [MVAr]"
+        }
+    ],
+ "Untitled":[
+       {
+          "max_variables":2,
+          "interval_min":-10,
+          "interval_max":10,
+          "optimal":1,
+          "arguments":0,
+      "optimization_type":"min",
+          "latex":"f(x) = (x_1^2 + x_2^2)/2 - cos(20\\pi x_1)cos(20\\pi x_2) + 2"
+       }
+     ]
+ }
